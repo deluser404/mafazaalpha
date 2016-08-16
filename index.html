@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Masjid Fatimatuzzahra Purwokerto</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+        <link rel="stylesheet" href="fonts/font-awesome.min.css" />
+        <link rel="stylesheet" href="css/jquery.mobile.min.css" />
+        <link rel="stylesheet" href="vendor/waves/waves.min.css" />
+        <link rel="stylesheet" href="vendor/wow/animate.css" />
+        <link rel="stylesheet" href="css/nativedroid2.css" />
+
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+        <script src="js/jquery.min.js"></script>
+        <script type="text/javascript">
+        $(document).ready(function() {
+            $.getJSON("http://masjidfatimatuzzahra.com/homelatestmobilesemua",function(result){
+                $.each(result, function(i, field){
+                    $("#semualist").append("<div class='nd2-card'><div class='card-title'><h3 class='card-primary-title'>"+field.judul+"</h3></div><div class='card-media'><img src='"+field.foto+"'></div><div class='card-supporting-text has-action'>"+field.isi+"</div><div class='card-action'><div class='row between-xs'><div class='col-xs-4'><div class='box'><a href='#' class='ui-btn ui-btn-inline ui-btn-fab'><i class='zmdi zmdi-thumb-up'></i></a><a href='#' class='ui-btn ui-btn-inline ui-btn-fab'><i class='zmdi zmdi-mail-send'></i></a></div></div><div class='col-xs-8 align-right'><div class='box'><a href='#' class='ui-btn ui-btn-inline'>Selengkapnya</a></div></div></div></div></div>");
+                });
+            });
+
+            $.getJSON("http://masjidfatimatuzzahra.com/homelatestmobilepublik",function(result){
+                $.each(result, function(i, field){
+                    $("#publiklist").append("<div class='nd2-card'><div class='card-title'><h3 class='card-primary-title'>"+field.judul+"</h3></div><div class='card-media'><img src='"+field.foto+"'></div><div class='card-supporting-text has-action'>"+field.isi+"</div><div class='card-action'><div class='row between-xs'><div class='col-xs-4'><div class='box'><a href='#' class='ui-btn ui-btn-inline ui-btn-fab'><i class='zmdi zmdi-thumb-up'></i></a><a href='#' class='ui-btn ui-btn-inline ui-btn-fab'><i class='zmdi zmdi-mail-send'></i></a></div></div><div class='col-xs-8 align-right'><div class='box'><a href='#' class='ui-btn ui-btn-inline' onclick='artikel("+field.ida+");' data-role='toast' data-toast-message='Sedang memuat...'>Selengkapnya</a></div></div></div></div></div>");
+                });
+            });
+
+            $.getJSON("http://masjidfatimatuzzahra.com/homelatestmobile",function(result){
+                $.each(result, function(i, field){
+                    $("#artikellist").append("<div class='nd2-card'><div class='card-title'><h3 class='card-primary-title'>"+field.judul+"</h3></div><div class='card-media'><img src='"+field.foto+"'></div><div class='card-supporting-text has-action'>"+field.isi+"</div><div class='card-action'><div class='row between-xs'><div class='col-xs-4'><div class='box'><a href='#' class='ui-btn ui-btn-inline ui-btn-fab'><i class='zmdi zmdi-thumb-up'></i></a><a href='#' class='ui-btn ui-btn-inline ui-btn-fab'><i class='zmdi zmdi-mail-send'></i></a></div></div><div class='col-xs-8 align-right'><div class='box'><a href='#' class='ui-btn ui-btn-inline'>Selengkapnya</a></div></div></div></div></div>");
+                });
+            });
+
+            $.getJSON("http://masjidfatimatuzzahra.com/homelatestmobilekajian",function(result){
+                $.each(result, function(i, field){
+                    $("#kajianlist").append("<div class='nd2-card card-media-right card-media-small'><div class='card-media'><img src='img/kajian.png'></div><div class='card-title has-supporting-text'><h3 class='card-primary-title'>"+field.judul+"</h3><h5 class='card-subtitle'>"+field.nama_ustadz+"</h5></div><div class='card-action'><div class='row between-xs'><div class='col-xs-12'><div class='box'><a href='#' class='ui-btn ui-btn-inline'><i class='zmdi zmdi-mail-send'></i></a></div></div></div></div></div>");
+                });
+            });
+        });
+        </script>
+
+        
+  
+    </head>
+    <body class="clr-accent-lime">
+
+        <div data-role="page" class="nd2-no-menu-swipe">
+
+            <nd2-include data-src="panel/panel.left.html"></nd2-include>
+
+            <div data-role="panel" id="bottomsheet" data-animate="false" data-position='bottom' data-display="overlay">
+                <nd2-include data-src="panel/bottom.sheet.html"></nd2-include>
+            </div>
+
+            <div data-role="header" data-position="fixed" class="wow fadeInDown" data-wow-delay="0.2s">
+                <a href="#bottomsheet" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay='1.2s'><i class="zmdi zmdi-more-vert"></i></a>
+                <a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
+                <h1 class="wow fadeIn" data-wow-delay='0.4s'>Mafaza App</h1>
+
+                <ul data-role="nd2tabs" data-swipe="true">
+                    <li data-tab="semua">Semua</li>
+                    <li data-tab="segera" data-tab-active="true">Segera</li>
+                    <li data-tab="berita">Berita</li>
+                    <li data-tab="kajian">Kajian</li>
+                </ul>
+            </div>
+
+            <div role="main" class="ui-content wow fadeIn" data-inset="false" data-wow-delay="0.2s">
+
+                    <div data-role="nd2tab" data-tab="semua" id="semualist">
+                    <a href="#" class="ui-btn ui-btn-raised clr-primary" onclick="bukak();">Lihat Semua</a>
+                    </div>
+
+                    <div data-role="nd2tab" data-tab="segera" id="publiklist">
+                    <a href="#" class="ui-btn ui-btn-raised clr-primary" onclick="bukak();">Lihat Semua</a>
+                    </div>
+
+                    <div data-role="nd2tab" data-tab="berita" id="artikellist">
+                    <a href="#" class="ui-btn ui-btn-raised clr-primary" onclick="bukak();">Lihat Semua</a>
+                    </div>
+
+                    <div data-role="nd2tab" data-tab="kajian" id="kajianlist">
+                    <a href="#" class="ui-btn ui-btn-raised clr-primary" onclick="bukak();">Lihat Semua</a>
+                    </div>
+
+            </div>
+
+        </div>
+
+        <script src="js/jquery-ui.min.js"></script>
+        <script src="js/jquery.mobile.min.js"></script>
+        <script src="vendor/waves/waves.min.js"></script>
+        <script src="vendor/wow/wow.min.js"></script>
+        <script src="js/nativedroid2.js"></script>
+        <script src="nd2settings.js"></script>
+        <script src="js/fungsi.js"></script>
+
+    </body>
+</html>

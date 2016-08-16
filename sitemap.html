@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Masjid Fatimatuzzahra Purwokerto</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+        <link rel="stylesheet" href="fonts/font-awesome.min.css" />
+        <link rel="stylesheet" href="css/jquery.mobile.min.css" />
+        <link rel="stylesheet" href="vendor/waves/waves.min.css" />
+        <link rel="stylesheet" href="vendor/wow/animate.css" />
+        <link rel="stylesheet" href="css/nativedroid2.css" />
+
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+        <style type="text/css">
+        #example4,
+        #example1-pagination, #example4-pagination {
+            display: none;
+        }
+        </style>
+
+        <script src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/jquery.paginate.js"></script>
+        <script type="text/javascript">
+        $(document).ready(function()    {
+            $.getJSON('http://localhost/mafaza/homelatestmobilesm', function(data) {
+                var items = [];
+                $.each(data, function(i, item) {
+                    items.push('<li>' + item.judul + '</li>');
+                });
+                $('#example4').append(items.join(''));
+                $('#example4').paginate({itemsPerPage: 1});
+            });
+        });
+        </script>
+
+    </head>
+    <body class="clr-accent-lime">
+
+        <div data-role="page" class="nd2-no-menu-swipe">
+
+            <div data-role="panel" id="bottomsheet" data-animate="false" data-position='bottom' data-display="overlay">
+                <nd2-include data-src="panel/bottom.sheet.html"></nd2-include>
+            </div>
+
+            <div data-role="header" data-position="fixed" class="wow fadeInDown" data-wow-delay="0.2s">
+                <a href="#bottomsheet" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay='1.2s'><i class="zmdi zmdi-more-vert"></i></a>
+                <a href="javascript:history.back()" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-arrow-back"></i></a>
+                <h1 class="wow fadeIn" data-wow-delay='0.4s'>Sitemap</h1>
+
+            </div>
+
+            <div role="main" class="ui-content wow fadeIn" data-inset="false" data-wow-delay="0.2s">
+                <ul id="example4"></ul>
+                <div id="example4-pagination">
+                    <a id="example4-previous" href="#" class="ui-btn ui-btn-inline ui-btn-fab ui-mini ui-btn-raised clr-primary"><i class='zmdi zmdi-arrow-back'></i></a> 
+                    <a id="example4-next" href="#" class="ui-btn ui-btn-inline ui-btn-fab ui-mini ui-btn-raised clr-primary"><i class='zmdi zmdi-arrow-forward'></i></a> 
+                </div>
+            </div>
+
+        </div>
+
+        <script src="js/jquery-ui.min.js"></script>
+        <script src="js/jquery.mobile.min.js"></script>
+        <script src="vendor/waves/waves.min.js"></script>
+        <script src="vendor/wow/wow.min.js"></script>
+        <script src="js/nativedroid2.js"></script>
+        <script src="nd2settings.js"></script>
+        <script src="js/fungsi.js"></script>
+
+    </body>
+</html>
